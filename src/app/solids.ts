@@ -8,12 +8,27 @@
 
 import { create } from 'zustand'
 
+/** Optional geometric descriptors per CAD face for cross-rebuild re-binding. */
+export interface SolidFaceMeta {
+  readonly id: number
+  readonly kind?: 'plane' | 'cylinder' | 'cone' | 'sphere' | 'torus' | 'other'
+  readonly origin?: readonly [number, number, number]
+  readonly dir?: readonly [number, number, number]
+  readonly radius?: number
+  readonly area?: number
+  readonly centroid?: readonly [number, number, number]
+}
+
 /** A solid as a closed triangle mesh. Its vertices may come once per face of
  *  the body, as a CAD mesh's do — weld them before relying on it being
  *  closed by index. */
 export interface SolidMesh {
   positions: Float32Array
   indices: Uint32Array
+  /** Per-triangle CAD face identifier (length = indices.length / 3). */
+  faceHash?: Int32Array
+  /** Optional geometric descriptors per CAD face for cross-rebuild re-binding. */
+  faces?: readonly SolidFaceMeta[]
 }
 
 export interface OfferedSolid {

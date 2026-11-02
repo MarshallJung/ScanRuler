@@ -911,6 +911,14 @@ const ICONS = {
       <path className="i-th" d="M6 20.5v-1.8M10 20.5v-1.8M14 20.5v-1.8M18 20.5v-1.8" />
     </>
   ),
+  wsFea: (
+    <>
+      <path className="i-th i-ft i-ds" d="M5 10h16v4H5" />
+      <path className="i-f" d="M5 10c5 0 11 1.5 16 4.5v4C16 15.5 10 14 5 14Z" />
+      <path d="M5 6v14M3 8l2-2M3 12l2-2M3 16l2-2M3 20l2-2" />
+      <path className="i-a" d="M18 3.5v8M15.8 9.3 18 11.5l2.2-2.2" />
+    </>
+  ),
 } satisfies Record<string, ReactNode>
 
 export type IconName = keyof typeof ICONS

@@ -422,7 +422,22 @@ export function useReverseWorkspace({
             if (!client) throw new Error('The CAD kernel is not running — open the Reverse engineer workspace once.')
             const [m] = await client.referenceMeshes([b.id], chord)
             if (!m) throw new Error(`${b.name} is not built any more.`)
-            return { positions: m.positions, indices: m.indices }
+            const topo = session.topologies.get(b.id)
+            const faces = topo?.faces.map((f) => ({
+              id: f.hash,
+              kind: f.fingerprint.kind,
+              ...(f.fingerprint.center ? { origin: f.fingerprint.center } : {}),
+              dir: f.fingerprint.dir,
+              ...(f.fingerprint.radius !== undefined ? { radius: f.fingerprint.radius } : {}),
+              area: f.fingerprint.area,
+              centroid: f.fingerprint.centroid,
+            }))
+            return {
+              positions: m.positions,
+              indices: m.indices,
+              ...(m.faceHash ? { faceHash: m.faceHash } : {}),
+              ...(faces ? { faces } : {}),
+            }
           },
         })),
     )

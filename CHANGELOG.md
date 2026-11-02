@@ -7,6 +7,12 @@ saves carry the same number as `appVersion`. How a release is cut is in
 
 ## Unreleased
 
+- **The FEA workspace (`plugins/fea/`)** (2026-11-02). Check the structural strength
+  of closed solids from **Reverse engineer** or watertight scans directly in the
+  browser using 10-node quadratic tetrahedra (`Tet10`), a deflated block-sparse
+  conjugate-gradient (`BSR-3x3 PCG`) solver, and Zienkiewicz–Zhu (`ZZ-SPR`) stress
+  recovery with mathematical verification gates (`Gate 1`–`Gate 7`), rigid-body
+  nullspace mode animation, and re-entrant corner singularity masking.
 - **Contributors are credited** (2026-11-01). Each publish to this repository now
   names the people whose work it brings as co-authors, starting with Jozkah and
   Starzrng. CONTRIBUTING.md says how it works.

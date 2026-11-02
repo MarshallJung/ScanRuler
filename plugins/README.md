@@ -9,6 +9,7 @@ not in this repository.
 |---|---|
 | [reverse/](reverse/) | The Reverse engineer workspace — scan to solid STEP body |
 | [mesh-tools/](mesh-tools/) | The Mesh Tools workspace — clean up and reduce a scan |
+| [fea/](fea/) | The FEA workspace — 3D linear elastostatic load and stress check |
 
 ## The rules
 
